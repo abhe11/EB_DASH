@@ -9,7 +9,7 @@ import dash_table
 import pandas as pd
 
 
-df = pd.read_csv(r'C://Users//abhe3739//Desktop//UI//master.csv')
+df = pd.read_csv(r'master.csv')
 
 df = df[['S_NO', 'NAME_OF_THE_VESSEL', 'QUANTITY', 'DISCHARGE_COMPLETED', 'PORT',
        'pono', 'SUPPLIER', 'A', 'B', 'C']]
