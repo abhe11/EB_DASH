@@ -18,6 +18,7 @@ import dash
 from dash.dependencies import Input, Output
 import dash_table
 import pandas as pd
+pd.options.mode.chained_assignment = None  # default='warn'
 app.layout = sidepanel.layout
 
 @app.callback(Output('tabs-content', 'children'),
