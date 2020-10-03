@@ -128,11 +128,7 @@ layout = html.Div([
 
          ,html.Div(html.H5("QUANTITY(kgs)"))
 
-            ,html.Div([html.H5("0")],
-                                    html.Td(id='qty'),
-                                    className="mini_container",
-                                    style={"visibility": "visible"},
-                                ),
+            ,html.Td(id='qty'),
                   
         ], style={'marginBottom': 50, 'marginTop': 25, 'marginLeft':15, 'marginRight':15})
     , width=3)
