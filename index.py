@@ -66,7 +66,7 @@ def split_filter_part(filter_part):
 
 @app.callback(
     Output('table-sorting-filtering', 'data'),
-    Output('qty','children')
+    Output('qty' , 'children')
      , [Input('table-sorting-filtering', "page_current")
      , Input('table-sorting-filtering', "page_size")
      , Input('table-sorting-filtering', 'sort_by')
