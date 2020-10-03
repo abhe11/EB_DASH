@@ -145,7 +145,7 @@ def update_table(page_current, page_size, sort_by, filter1, ratingcheck, prices 
     
     dff=dff.drop(['A','B','C'], axis=1)
                  
-    return dff.iloc[page * size: (page + 1) * size].to_dict('records'),list(dff['QUANTITY'].sum())
+    return dff.iloc[page * size: (page + 1) * size].to_dict('records'),dff['QUANTITY'].sum()
 
     
 
