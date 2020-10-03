@@ -139,7 +139,6 @@ def update_table(page_current, page_size, sort_by, filter1, ratingcheck, prices 
             ],
             inplace=False
         )
-    print(supplier)
 
     page = page_current
     size = page_size
