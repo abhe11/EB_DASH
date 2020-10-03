@@ -28,7 +28,6 @@ max_m=df.B.max()
 min_d=df.A.min()
 max_d=df.A.max()
 
-qty=df.QUANTITY.sum()
 
 options_array = BuildOptions(df.SUPPLIER,1)
 
