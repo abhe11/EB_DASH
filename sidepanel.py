@@ -120,7 +120,7 @@ layout = html.Div([
         ,html.Div([html.H5('Supplier')
             ,dcc.Dropdown(id='supplier'
                             ,options=options_array,
-                            value=options_array[0],
+                            value='All',
                                 multi=True
                             )],
                         className='two columns'
