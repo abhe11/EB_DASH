@@ -132,6 +132,7 @@ layout = html.Div([
                                     id="qty",
                                     className="mini_container",
                                     style={"visibility": "visible"},
+                                    value={"type": "number"},
                                 ),
                   
         ], style={'marginBottom': 50, 'marginTop': 25, 'marginLeft':15, 'marginRight':15})
