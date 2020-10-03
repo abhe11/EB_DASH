@@ -128,7 +128,7 @@ layout = html.Div([
 
          ,html.Div(html.H5("QUANTITY(kgs)"))
 
-            ,,html.Div(
+            ,html.Div(
                                     id="qty",
                                     className="mini_container",
                                     style={"visibility": "visible"},
