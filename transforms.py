@@ -21,3 +21,10 @@ df['QUANTITY']=pd.to_numeric(df['QUANTITY'])
 df['A']=pd.to_numeric(df['A'])
 df['B']=pd.to_numeric(df['B'])
 df['C']=pd.to_numeric(df['C'])
+
+l=df['SUPPLIER']
+    
+for i in range(len(l)):
+    l[i] = l[i].replace("_", " ")
+    l[i] = l[i].replace("/", "")
+    l[i] = l[i].upper()
