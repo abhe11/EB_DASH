@@ -5,4 +5,4 @@ dash_table==4.8.1
 dash_html_components==1.0.3
 plotly==4.8.2
 dash==1.13.3
-gunicorn==19.0.0
+gunicorn==19.5.0
