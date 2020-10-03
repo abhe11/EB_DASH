@@ -22,9 +22,9 @@ df['A']=pd.to_numeric(df['A'])
 df['B']=pd.to_numeric(df['B'])
 df['C']=pd.to_numeric(df['C'])
 
-l=df['SUPPLIER']
+
     
-for i in range(len(l)):
-    l[i] = l[i].replace("_", " ")
-    l[i] = l[i].replace("/", "")
-    l[i] = l[i].upper()
+for i in range(len(df['SUPPLIER'])):
+    (df['SUPPLIER'])[i] = (df['SUPPLIER'])[i].replace("_", " ")
+    (df['SUPPLIER'])[i] = (df['SUPPLIER'])[i].replace("/", "")
+    (df['SUPPLIER'])[i] = (df['SUPPLIER'])[i].upper()
