@@ -36,13 +36,20 @@ def update_graph(ratingcheck, prices ,month, day, supplier):
     mind=day[0]
     maxd=day[1]
     
-    for i in supplier:
-        if supplier=={'label': 'All', 'value': 'All'} or i=='All' or supplier==[]:
+    dff1=[]
     
-            dff=dff
+    if 'All' in supplier:
+        dff=transforms.df
+    else:
+        for i in supplier:
+            dff = transforms.df
+            if supplier=={'label': 'All', 'value': 'All'}:
+    
+                dff=dff
         
-        else:
-            dff=dff.loc[(dff['SUPPLIER']==i) ]
+            else:
+                dff1.append(dff.loc[(dff['SUPPLIER']==i)])
+        dff = pd.concat(dff1)
     
     dff = dff.loc[(dff['C'] >= low) & (dff['C'] <= high)]
     
@@ -55,7 +62,7 @@ def update_graph(ratingcheck, prices ,month, day, supplier):
     else:
         dff
 
-    trace1 = go.Scattergl(x = dff['C']
+    trace1 = go.Scattergl(x = dff['DISCHARGE_COMPLETED']
                         , y = dff['QUANTITY']
                         , mode='markers'
                         , opacity=0.7
