@@ -18,7 +18,6 @@ import dash
 from dash.dependencies import Input, Output
 import dash_table
 import pandas as pd
-
 app.layout = sidepanel.layout
 
 @app.callback(Output('tabs-content', 'children'),
@@ -66,8 +65,9 @@ def split_filter_part(filter_part):
 
 
 @app.callback(
-    Output('table-sorting-filtering', 'data')
-    , [Input('table-sorting-filtering', "page_current")
+    Output('table-sorting-filtering', 'data'),
+    Output('qty','children')
+     , [Input('table-sorting-filtering', "page_current")
      , Input('table-sorting-filtering', "page_size")
      , Input('table-sorting-filtering', 'sort_by')
      , Input('table-sorting-filtering', 'filter_query')
@@ -77,8 +77,8 @@ def split_filter_part(filter_part):
      , Input('day-slider', 'value')
      , Input('supplier', 'value')
      ])
-def update_table(page_current, page_size, sort_by, filter, ratingcheck, prices ,month, day, supplier):
-    filtering_expressions = filter.split(' && ')
+def update_table(page_current, page_size, sort_by, filter1, ratingcheck, prices ,month, day, supplier):
+    filtering_expressions = filter1.split(' && ')
     dff = transforms.df
     print(ratingcheck)
 
@@ -91,13 +91,20 @@ def update_table(page_current, page_size, sort_by, filter, ratingcheck, prices ,
     mind=day[0]
     maxd=day[1]
     
-    for i in supplier:
-        if supplier=={'label': 'All', 'value': 'All'} or i=='All' or supplier==[]:
+    dff1=[]
     
-            dff=dff
+    if 'All' in supplier :
+        dff=transforms.df
+    else:
+        for i in supplier:
+            dff = transforms.df
+            if supplier=={'label': 'All', 'value': 'All'}:
+    
+                dff=dff
         
-        else:
-            dff=dff.loc[(dff['SUPPLIER']==i)]
+            else:
+                dff1.append(dff.loc[(dff['SUPPLIER']==i)])
+        dff = pd.concat(dff1)
     
     dff = dff.loc[(dff['C'] >= low) & (dff['C'] <= high)]
     
@@ -132,12 +139,16 @@ def update_table(page_current, page_size, sort_by, filter, ratingcheck, prices ,
             ],
             inplace=False
         )
+    print(supplier)
 
     page = page_current
     size = page_size
     
+    dff=dff.drop(['A','B','C'], axis=1)
                  
-    return dff.iloc[page * size: (page + 1) * size].to_dict('records')
+    return dff.iloc[page * size: (page + 1) * size].to_dict('records'),dff['QUANTITY'].sum()
+
+    
 
 if __name__ == '__main__':
   #port = int(os.environ.get('PORT', 5000))
