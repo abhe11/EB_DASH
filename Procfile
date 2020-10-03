@@ -1,1 +1,1 @@
-worker: python index.py --bind 0.0.0.0:${PORT}
+web: python index.py --bind 0.0.0.0:${PORT}
