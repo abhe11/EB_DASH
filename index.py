@@ -139,6 +139,6 @@ def update_table(page_current, page_size, sort_by, filter, ratingcheck, prices ,
     return dff.iloc[page * size: (page + 1) * size].to_dict('records')
 
 if __name__ == '__main__':
-    app.run_server(debug = False, port=8001)
+    app.run_server(debug=True)
     
     
