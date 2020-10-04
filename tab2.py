@@ -17,7 +17,6 @@ layout = html.Div(
         )
 
 @app.callback(Output('table-paging-with-graph-container', "children"),
-    Output('qty' , 'children'),
 [Input('rating-95', 'value')
 , Input('price-slider', 'value')
 , Input('month-slider', 'value')
@@ -100,4 +99,4 @@ def update_graph(ratingcheck, prices ,month, day, supplier):
                 )
             }
         )
-    ]),dff['QUANTITY'].sum()
+    ])
