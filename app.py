@@ -98,6 +98,8 @@ def update_table(page_current, page_size, sort_by, filter, ratingcheck, prices ,
     mind=day[0]
     maxd=day[1]
     
+    supplier = ['All'] if supplier=='All' else supplier
+    
     for i in supplier:
         if supplier=={'label': 'All', 'value': 'All'} or i=='All' or supplier==[]:
     
